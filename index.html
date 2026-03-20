@@ -590,6 +590,37 @@
       border-radius: 3px;
     }
 
+    /* ── POLL CARDS ──────────────────────────────── */
+    .polls-section { margin: 10px 0 6px; }
+    .polls-section .sec-title { margin-bottom: 6px; }
+    .poll-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+    .poll-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 9px 10px;
+      font-size: 11px;
+    }
+    .poll-card.wide { grid-column: 1 / -1; }
+    .poll-card.analysis-card { border-color: rgba(74,144,217,0.4); background: rgba(26,111,212,0.08); }
+    .poll-source { font-size: 9.5px; color: var(--text-dim); margin-bottom: 3px; }
+    .poll-title { font-weight: 700; color: var(--text); margin-bottom: 6px; font-size: 11px; line-height: 1.4; }
+    .approval-badge { font-size: 22px; font-weight: 900; color: #7aaee8; line-height: 1.1; }
+    .approval-sub { font-size: 10px; color: var(--text-dim); font-weight: 400; }
+    .poll-note { font-size: 9.5px; color: #e8c87a; margin-top: 4px; }
+    .poll-note-sub { font-size: 9.5px; color: var(--text-dim); margin-bottom: 4px; }
+    .pb-row { display: flex; align-items: center; gap: 4px; margin-bottom: 3px; }
+    .pb-label { width: 60px; font-size: 9.5px; color: var(--text-dim); flex-shrink: 0; }
+    .pb-track { flex: 1; height: 7px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
+    .pb-fill { height: 100%; border-radius: 4px; }
+    .pb-val { width: 32px; text-align: right; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+    .analysis-list { padding-left: 13px; margin: 4px 0 0; color: var(--text-dim); line-height: 1.7; font-size: 10px; }
+    .analysis-list li { margin-bottom: 1px; }
+    .data-note { font-size: 9.5px; color: #e8c87a; background: rgba(232,200,122,0.08); border: 1px solid rgba(232,200,122,0.2); border-radius: 4px; padding: 4px 7px; margin: 4px 0; }
+    /* dong detail turnout */
+    .turnout-cell { color: #a0c4ff; font-size: 10px; }
+    .dong-detail-note { font-size: 9.5px; color: var(--text-dim); padding: 4px 6px; background: rgba(255,255,255,0.03); border-radius: 4px; margin-bottom: 6px; }
+
     /* Responsive */
     @media (max-width: 900px) {
       #app { flex-direction: column; overflow: auto; }
@@ -663,6 +694,74 @@
           <div class="fb-main">민주당 압도적 우세 예상</div>
           <div class="fb-sub">갑 57~62% / 을 60~65% 예상 · 격차 +20~30%p</div>
         </div>
+
+        <!-- 여론조사 근거 -->
+        <div class="polls-section">
+          <div class="sec-title">📊 2026 전망 여론조사 근거</div>
+          <div class="poll-grid">
+
+            <div class="poll-card">
+              <div class="poll-source">한국갤럽 데일리 오피니언 656호 (2026.03.17~19)</div>
+              <div class="poll-title">전국 정당 지지율</div>
+              <div class="pb-row"><span class="pb-label">민주당</span><div class="pb-track"><div class="pb-fill" style="width:46%;background:#0052B4;"></div></div><span class="pb-val" style="color:#7aaee8;">46%</span></div>
+              <div class="pb-row"><span class="pb-label">국민의힘</span><div class="pb-track"><div class="pb-fill" style="width:20%;background:#C9151E;"></div></div><span class="pb-val" style="color:#e8a0a0;">20%</span></div>
+              <div class="poll-note">민주당 +26%p 우위</div>
+            </div>
+
+            <div class="poll-card">
+              <div class="poll-source">한국갤럽 (2026.03.13)</div>
+              <div class="poll-title">이재명 대통령 국정 지지율</div>
+              <div class="approval-badge">66%<br><span class="approval-sub">취임 후 최고치</span></div>
+            </div>
+
+            <div class="poll-card wide">
+              <div class="poll-source">MBC 여론조사공정 (2026.03) · 서울 18세 이상 804명 · ±3.5%p</div>
+              <div class="poll-title">서울시장 양자대결 (여권 후보별)</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+                <div>
+                  <div style="font-size:9.5px;color:var(--text-dim);margin-bottom:3px;">오세훈 vs 정원오</div>
+                  <div class="pb-row"><span class="pb-label">오세훈</span><div class="pb-track"><div class="pb-fill" style="width:36%;background:#C9151E;"></div></div><span class="pb-val" style="color:#e8a0a0;">36%</span></div>
+                  <div class="pb-row"><span class="pb-label">정원오</span><div class="pb-track"><div class="pb-fill" style="width:34%;background:#0052B4;"></div></div><span class="pb-val" style="color:#7aaee8;">34%</span></div>
+                </div>
+                <div>
+                  <div style="font-size:9.5px;color:var(--text-dim);margin-bottom:3px;">오세훈 vs 박주민</div>
+                  <div class="pb-row"><span class="pb-label">오세훈</span><div class="pb-track"><div class="pb-fill" style="width:37%;background:#C9151E;"></div></div><span class="pb-val" style="color:#e8a0a0;">37%</span></div>
+                  <div class="pb-row"><span class="pb-label">박주민</span><div class="pb-track"><div class="pb-fill" style="width:34%;background:#0052B4;"></div></div><span class="pb-val" style="color:#7aaee8;">34%</span></div>
+                </div>
+              </div>
+              <div class="poll-note">서울시장은 전 후보 오차범위 내 박빙 — 서대문구 갑은 총선 기준 민주당 우세 지역</div>
+            </div>
+
+            <div class="poll-card">
+              <div class="poll-source">여론조사공정 (2025.12) · 서울 서북권</div>
+              <div class="poll-title">서울 서북권 서울시장 지지<br><span style="font-size:9px;font-weight:400;">(은평·서대문·마포 권역)</span></div>
+              <div class="pb-row"><span class="pb-label">오세훈</span><div class="pb-track"><div class="pb-fill" style="width:34.5%;background:#C9151E;"></div></div><span class="pb-val" style="color:#e8a0a0;">34.5%</span></div>
+              <div class="pb-row"><span class="pb-label">정원오</span><div class="pb-track"><div class="pb-fill" style="width:23.2%;background:#0052B4;"></div></div><span class="pb-val" style="color:#7aaee8;">23.2%</span></div>
+              <div class="poll-note">서북권 서울시장은 국힘 우세 — 지역구와 상이한 패턴</div>
+            </div>
+
+            <div class="poll-card">
+              <div class="poll-source">2022 서대문구청장 결과 (참고)</div>
+              <div class="poll-title">이성헌(국힘) 2022 당선<br>→ 2026 재선 도전 예상</div>
+              <div class="pb-row"><span class="pb-label">이성헌(국힘)</span><div class="pb-track"><div class="pb-fill" style="width:53.3%;background:#C9151E;"></div></div><span class="pb-val" style="color:#e8a0a0;">53.3%</span></div>
+              <div class="pb-row"><span class="pb-label">박운기(민주)</span><div class="pb-track"><div class="pb-fill" style="width:44.1%;background:#0052B4;"></div></div><span class="pb-val" style="color:#7aaee8;">44.1%</span></div>
+              <div class="poll-note">당시 여론조사 47% → 실제 53.3% (+6.3%p 숨겨진 지지)</div>
+            </div>
+
+            <div class="poll-card wide analysis-card">
+              <div class="poll-source">전망 분석 종합</div>
+              <div class="poll-title">2026 서대문구 갑 선거구 전망 근거</div>
+              <ul class="analysis-list">
+                <li><strong>여당 프리미엄</strong>: 갤럽 민주당 46% vs 국힘 20% → 전국 +26%p 우위</li>
+                <li><strong>총선 기준선</strong>: 22대 총선(2024) 민주 50.75%, 국힘 43.49% → 갑 민주 우세 확인</li>
+                <li><strong>서울시장</strong>: 서북권 오세훈 34.5% 우세 → 지역구 총선과 다른 패턴 (분할투표 고려 필요)</li>
+                <li><strong>구청장</strong>: 이성헌 현 구청장 재선 도전 시 숨겨진 지지(+6%p) 패턴 존재</li>
+                <li><strong>대선 패턴</strong>: 2022 대선에서 갑 선거구 전 7개동 이재명 패배 → 대선 지형은 여전히 국힘 유리</li>
+              </ul>
+            </div>
+
+          </div>
+        </div><!-- /polls-section -->
 
         <div class="sec-title">갑 선거구 (7개 동)</div>
         <div id="dong-cards-gap"></div>
@@ -967,6 +1066,25 @@ const turnoutData = [
   { label:'2022 지방', val:56.2, type:'지방' },
   { label:'2024 총선', val:67.5, type:'총선' }
 ];
+
+/* 동별 추정 투표율 (서대문구 평균 ± 지역 특성 보정, 추정치)
+   대학가·유동인구↑ → 낮음 / 안정 주거·고령층↑ → 높음 */
+const dongTurnout = {
+  '신촌동':   { '2024chong':62.5, '2022dae':71.1, '2022jiha':51.2, '2020chong':63.5, '2017dae':72.8, '2016chong':56.5, '2012dae':72.1 },
+  '연희동':   { '2024chong':70.5, '2022dae':79.1, '2022jiha':59.2, '2020chong':71.5, '2017dae':80.8, '2016chong':64.5, '2012dae':80.1 },
+  '충현동':   { '2024chong':67.2, '2022dae':75.8, '2022jiha':55.9, '2020chong':68.2, '2017dae':77.5, '2016chong':61.2, '2012dae':76.8 },
+  '천연동':   { '2024chong':67.8, '2022dae':76.5, '2022jiha':56.5, '2020chong':68.8, '2017dae':78.2, '2016chong':61.8, '2012dae':77.5 },
+  '북아현동': { '2024chong':66.8, '2022dae':75.5, '2022jiha':55.5, '2020chong':67.8, '2017dae':77.2, '2016chong':60.8, '2012dae':76.5 },
+  '홍제1동':  { '2024chong':68.2, '2022dae':77.1, '2022jiha':57.2, '2020chong':69.5, '2017dae':79.1, '2016chong':62.5, '2012dae':78.1 },
+  '홍제2동':  { '2024chong':68.5, '2022dae':77.5, '2022jiha':57.5, '2020chong':69.8, '2017dae':79.5, '2016chong':62.8, '2012dae':78.5 },
+  '홍제3동':  { '2024chong':68.1, '2022dae':77.0, '2022jiha':57.0, '2020chong':69.2, '2017dae':78.9, '2016chong':62.2, '2012dae':77.9 },
+  '홍은1동':  { '2024chong':68.8, '2022dae':78.2, '2022jiha':58.2, '2020chong':70.1, '2017dae':80.1, '2016chong':63.2, '2012dae':79.1 },
+  '홍은2동':  { '2024chong':68.5, '2022dae':77.8, '2022jiha':57.8, '2020chong':69.8, '2017dae':79.8, '2016chong':62.8, '2012dae':78.8 },
+  '남가좌1동':{ '2024chong':66.5, '2022dae':75.2, '2022jiha':55.2, '2020chong':67.5, '2017dae':76.9, '2016chong':60.5, '2012dae':76.2 },
+  '남가좌2동':{ '2024chong':66.2, '2022dae':74.8, '2022jiha':54.8, '2020chong':67.2, '2017dae':76.5, '2016chong':60.2, '2012dae':75.8 },
+  '북가좌1동':{ '2024chong':66.8, '2022dae':75.5, '2022jiha':55.5, '2020chong':67.8, '2017dae':77.2, '2016chong':60.8, '2012dae':76.5 },
+  '북가좌2동':{ '2024chong':65.8, '2022dae':74.2, '2022jiha':54.2, '2020chong':66.8, '2017dae':75.9, '2016chong':59.8, '2012dae':75.2 }
+};
 
 /* ═══════════════════════════════════════════════════
    COLOR UTILITY
@@ -1508,27 +1626,37 @@ function showDongDetail(name) {
 
   // Election history rows
   const histRows = [
-    { key: '2024chong', label: '2024 총선 (22대)' },
-    { key: '2022dae',   label: '2022 대선' },
-    { key: '2022jiha',  label: '2022 지방 (서울시장)' },
-    { key: '2020chong', label: '2020 총선 (21대)' },
-    { key: '2017dae',   label: '2017 대선' },
-    { key: '2016chong', label: '2016 총선 (20대)' },
-    { key: '2012dae',   label: '2012 대선' }
+    { key: '2024chong', label: '2024 총선', isDongLevel: false },
+    { key: '2022dae',   label: '2022 대선', isDongLevel: true  },
+    { key: '2022jiha',  label: '2022 지방',  isDongLevel: false },
+    { key: '2020chong', label: '2020 총선', isDongLevel: false },
+    { key: '2017dae',   label: '2017 대선', isDongLevel: false },
+    { key: '2016chong', label: '2016 총선', isDongLevel: false },
+    { key: '2012dae',   label: '2012 대선', isDongLevel: false }
   ];
+
+  const dongTurn = dongTurnout[name] || {};
 
   const tableRows = histRows.map(row => {
     const ed = d[row.key] || {};
     const dp = ed.dp || 0;
     const ppp = ed.ppp || 0;
+    const reform = ed.reform || 0;
+    const prog = ed.prog || 0;
     const gap = (dp - ppp).toFixed(1);
-    const meta = electionMeta[row.key];
+    const turn = dongTurn[row.key] ? dongTurn[row.key].toFixed(1) : '-';
     const winnerDp = dp > ppp;
+    const srcNote = row.isDongLevel ? '' : '<span style="font-size:8px;color:#e8c87a;" title="선거구 단위 데이터">선거구</span>';
+    const reformCell = reform > 0 ? `<span style="color:#FF7700;">${reform}%</span>` : '-';
+    const progCell = prog > 0 ? `<span style="color:#00A650;">${prog}%</span>` : '-';
     return `<tr class="${winnerDp?'winner-dp':'winner-ppp'}">
-      <td style="font-size:10px;">${row.label}</td>
+      <td style="font-size:9.5px;">${row.label} ${srcNote}</td>
       <td class="dp-cell">${dp}%</td>
       <td class="ppp-cell">${ppp}%</td>
-      <td style="font-size:10px;color:${parseFloat(gap)>0?'#7aaee8':'#e8a0a0'};">${parseFloat(gap)>0?'+':''}${gap}%p</td>
+      <td>${reformCell}</td>
+      <td>${progCell}</td>
+      <td style="font-size:9.5px;color:${parseFloat(gap)>0?'#7aaee8':'#e8a0a0'};">${parseFloat(gap)>0?'+':''}${gap}%p</td>
+      <td class="turnout-cell">${turn}%</td>
     </tr>`;
   }).join('');
 
@@ -1546,12 +1674,23 @@ function showDongDetail(name) {
         <div class="party-bar-row"><span class="party-bar-name">개혁신당</span><div class="party-bar-track"><div class="party-bar-fill" style="width:${forecast.reform}%;background:#FF7700;"></div></div><span class="party-bar-pct">${forecast.reform}%</span></div>
         <div class="party-bar-row"><span class="party-bar-name">진보당</span><div class="party-bar-track"><div class="party-bar-fill" style="width:${forecast.prog}%;background:#00A650;"></div></div><span class="party-bar-pct">${forecast.prog}%</span></div>
       </div>
-      <div style="font-size:11px;color:#7aaee8;margin-top:4px;">예상 격차: +${forecast.dp - forecast.ppp}%p</div>
+      <div style="font-size:11px;color:#7aaee8;margin-top:4px;">예상 격차: +${forecast.dp - forecast.ppp}%p · 예상 투표율: ~67%</div>
     </div>
 
-    <div class="sec-title">역대 선거 결과</div>
-    <table class="hist-table">
-      <thead><tr><th>선거</th><th>민주</th><th>국힘</th><th>격차</th></tr></thead>
+    <div class="sec-title">역대 선거 결과 · 투표율</div>
+    <div class="dong-detail-note">⚠ <b>2022 대선</b>만 동별 실측치. 나머지 득표율은 해당 선거구(갑/을) 단위 데이터. 투표율은 서대문구 전체 기준 동별 보정 추정치.</div>
+    <table class="hist-table" style="font-size:10px;">
+      <thead>
+        <tr>
+          <th>선거</th>
+          <th style="color:#7aaee8;">민주</th>
+          <th style="color:#e8a0a0;">국힘</th>
+          <th style="color:#FF7700;">개혁</th>
+          <th style="color:#00A650;">진보</th>
+          <th>격차</th>
+          <th class="turnout-cell">투표율</th>
+        </tr>
+      </thead>
       <tbody>${tableRows}</tbody>
     </table>
 
@@ -1559,6 +1698,10 @@ function showDongDetail(name) {
     <div class="chart-wrap">
       <h4>${name} 선거별 민주당/국힘 득표율</h4>
       <canvas id="dongDetailChart" height="180"></canvas>
+    </div>
+    <div class="chart-wrap" style="margin-top:8px;">
+      <h4>${name} 동별 추정 투표율 추이</h4>
+      <canvas id="dongTurnoutChart" height="140"></canvas>
     </div>`;
 
   document.getElementById('dong-detail-content').innerHTML = html;
@@ -1587,6 +1730,36 @@ function showDongDetail(name) {
         scales: {
           x: { ...chartCommonOpts.scales.x, ticks: { ...chartCommonOpts.scales.x.ticks, maxRotation: 40 } },
           y: { ...chartCommonOpts.scales.y, min: 25, max: 75 }
+        }
+      }
+    });
+  }
+
+  // 투표율 추이 차트
+  const tctx = document.getElementById('dongTurnoutChart');
+  if (tctx && dongTurnout[name]) {
+    const tKeys   = ['2012dae','2016chong','2017dae','2020chong','2022jiha','2022dae','2024chong'];
+    const tLabels = ['2012대선','2016총선','2017대선','2020총선','2022지방','2022대선','2024총선'];
+    const tVals   = tKeys.map(k => dongTurnout[name][k] || null);
+    new Chart(tctx, {
+      type: 'bar',
+      data: {
+        labels: tLabels,
+        datasets: [{
+          label: '투표율(%)',
+          data: tVals,
+          backgroundColor: tVals.map(v => v >= 75 ? 'rgba(74,144,217,0.7)' : v >= 65 ? 'rgba(74,144,217,0.45)' : 'rgba(74,144,217,0.25)'),
+          borderColor: 'rgba(74,144,217,0.8)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        plugins: { legend: { display: false }, tooltip: { bodyFont: { family: "'Noto Sans KR',sans-serif" } } },
+        scales: {
+          x: { ticks: { color:'#8a93ad', font:{ family:"'Noto Sans KR',sans-serif", size:9 }, maxRotation:40 }, grid:{ color:'rgba(42,51,80,0.5)' } },
+          y: { ticks: { color:'#8a93ad', font:{ family:"'Noto Sans KR',sans-serif", size:9 } }, grid:{ color:'rgba(42,51,80,0.5)' }, min:45, max:85,
+               title:{ display:true, text:'투표율(%)', color:'#8a93ad', font:{ size:9 } } }
         }
       }
     });
