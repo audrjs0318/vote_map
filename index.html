@@ -690,9 +690,9 @@
       <!-- TAB 1: 지도 전망 -->
       <div class="tab-pane active" id="tab-map-view">
         <div class="forecast-banner">
-          <div class="fb-label">2026 지방선거 서대문구 예상</div>
-          <div class="fb-main">민주당 압도적 우세 예상</div>
-          <div class="fb-sub">갑 57~62% / 을 60~65% 예상 · 격차 +20~30%p</div>
+          <div class="fb-label">2026 지방선거 서대문구 예상 (여론조사 기반)</div>
+          <div class="fb-main">갑: 국힘 우세 / 을: 민주 소폭 우세</div>
+          <div class="fb-sub">갑 민주 43~46% · 국힘 44~46% (경합) / 을 민주 48~52% · 국힘 38~42%</div>
         </div>
 
         <!-- 여론조사 근거 -->
@@ -749,14 +749,14 @@
             </div>
 
             <div class="poll-card wide analysis-card">
-              <div class="poll-source">전망 분석 종합</div>
-              <div class="poll-title">2026 서대문구 갑 선거구 전망 근거</div>
+              <div class="poll-source">📐 전망 산출 방법론 (여론조사 기반 직접 산출)</div>
+              <div class="poll-title">동별 2026 예측 계산 방식</div>
               <ul class="analysis-list">
-                <li><strong>여당 프리미엄</strong>: 갤럽 민주당 46% vs 국힘 20% → 전국 +26%p 우위</li>
-                <li><strong>총선 기준선</strong>: 22대 총선(2024) 민주 50.75%, 국힘 43.49% → 갑 민주 우세 확인</li>
-                <li><strong>서울시장</strong>: 서북권 오세훈 34.5% 우세 → 지역구 총선과 다른 패턴 (분할투표 고려 필요)</li>
-                <li><strong>구청장</strong>: 이성헌 현 구청장 재선 도전 시 숨겨진 지지(+6%p) 패턴 존재</li>
-                <li><strong>대선 패턴</strong>: 2022 대선에서 갑 선거구 전 7개동 이재명 패배 → 대선 지형은 여전히 국힘 유리</li>
+                <li><strong>기준선</strong>: 여론조사꽃 서울 지방선거 의향 → 여당(민주) <strong>51.7%</strong>, 야당(국힘) ~<strong>40.3%</strong></li>
+                <li><strong>서북권 보정 -5%p</strong>: 서울 권역별 조사에서 서북권(은평·서대문·마포)만 민주 50% 미만 → 서북권 민주 ~<strong>46.7%</strong>, 국힘 ~<strong>43.3%</strong></li>
+                <li><strong>동별 보정</strong>: 2022 대선 동별 실측 격차를 반영 (국힘 우세 동 → 추가 -2~4%p 민주, 민주 우세 동 → +2~5%p 민주)</li>
+                <li><strong>개혁신당</strong>: 드림투데이 서울 3.6% → 서대문구 대학가·청년층 고려 <strong>5%</strong>로 설정</li>
+                <li><strong>결론</strong>: 갑 선거구 신촌·연희·충현은 <span style="color:#e8a0a0;">국힘 소폭 우세</span>, 홍제동 일대 경합. 을 선거구 홍은·홍제3·북가좌는 <span style="color:#7aaee8;">민주 우세</span></li>
               </ul>
             </div>
 
@@ -902,7 +902,7 @@ const ALL_DONGS = [...GAP_DONGS, ...EUL_DONGS];
 
 const dongData = {
   '신촌동':   { pop: 18500, char: '대학가·청년층 밀집', const: '갑',
-    '2026': { dp:59, ppp:36, reform:3, prog:2 },
+    '2026': { dp:43, ppp:46, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:43.05, ppp:51.64 },
     '2022jiha':  { dp:40.0, ppp:56.0 },
@@ -912,7 +912,7 @@ const dongData = {
     '2012dae':   { dp:52.3, ppp:47.7 }
   },
   '연희동':   { pop: 35000, char: '중산층 주거지, 구 최대', const: '갑',
-    '2026': { dp:57, ppp:38, reform:3, prog:2 },
+    '2026': { dp:43, ppp:46, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:44.27, ppp:50.74 },
     '2022jiha':  { dp:38.0, ppp:59.0 },
@@ -922,7 +922,7 @@ const dongData = {
     '2012dae':   { dp:50.8, ppp:49.2 }
   },
   '충현동':   { pop: 15000, char: '충정로 역세권', const: '갑',
-    '2026': { dp:58, ppp:37, reform:3, prog:2 },
+    '2026': { dp:43, ppp:46, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:44.53, ppp:51.26 },
     '2022jiha':  { dp:39.0, ppp:58.0 },
@@ -932,7 +932,7 @@ const dongData = {
     '2012dae':   { dp:51.5, ppp:48.5 }
   },
   '천연동':   { pop: 8900, char: '독립문 인근', const: '갑',
-    '2026': { dp:61, ppp:34, reform:3, prog:2 },
+    '2026': { dp:44, ppp:45, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:46.0, ppp:50.0 },
     '2022jiha':  { dp:40.0, ppp:57.0 },
@@ -942,7 +942,7 @@ const dongData = {
     '2012dae':   { dp:53.0, ppp:47.0 }
   },
   '북아현동': { pop: 10000, char: '재개발 진행', const: '갑',
-    '2026': { dp:60, ppp:35, reform:3, prog:2 },
+    '2026': { dp:44, ppp:45, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:45.93, ppp:50.15 },
     '2022jiha':  { dp:39.0, ppp:58.0 },
@@ -952,7 +952,7 @@ const dongData = {
     '2012dae':   { dp:52.0, ppp:48.0 }
   },
   '홍제1동':  { pop: 18500, char: '홍제역 인근', const: '갑',
-    '2026': { dp:62, ppp:33, reform:3, prog:2 },
+    '2026': { dp:46, ppp:44, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:47.0, ppp:49.0 },
     '2022jiha':  { dp:40.0, ppp:57.0 },
@@ -962,7 +962,7 @@ const dongData = {
     '2012dae':   { dp:54.0, ppp:46.0 }
   },
   '홍제2동':  { pop: 14000, char: '인왕산 인접', const: '갑',
-    '2026': { dp:62, ppp:33, reform:3, prog:2 },
+    '2026': { dp:46, ppp:44, reform:5, prog:2 },
     '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
     '2022dae':   { dp:47.0, ppp:49.0 },
     '2022jiha':  { dp:40.0, ppp:57.0 },
@@ -972,7 +972,7 @@ const dongData = {
     '2012dae':   { dp:54.0, ppp:46.0 }
   },
   '홍제3동':  { pop: 14000, char: '홍제동 북부', const: '을',
-    '2026': { dp:63, ppp:32, reform:3, prog:2 },
+    '2026': { dp:50, ppp:40, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:50.61, ppp:45.48 },
     '2022jiha':  { dp:44.0, ppp:53.0 },
@@ -982,7 +982,7 @@ const dongData = {
     '2012dae':   { dp:52.0, ppp:48.0 }
   },
   '홍은1동':  { pop: 22000, char: '홍제천변', const: '을',
-    '2026': { dp:63, ppp:32, reform:3, prog:2 },
+    '2026': { dp:50, ppp:40, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:50.54, ppp:45.69 },
     '2022jiha':  { dp:44.0, ppp:53.0 },
@@ -992,7 +992,7 @@ const dongData = {
     '2012dae':   { dp:51.0, ppp:49.0 }
   },
   '홍은2동':  { pop: 19000, char: '인왕산 남측', const: '을',
-    '2026': { dp:62, ppp:33, reform:3, prog:2 },
+    '2026': { dp:50, ppp:40, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:50.45, ppp:45.56 },
     '2022jiha':  { dp:44.0, ppp:53.0 },
@@ -1002,7 +1002,7 @@ const dongData = {
     '2012dae':   { dp:51.5, ppp:48.5 }
   },
   '남가좌1동':{ pop: 20000, char: 'DMC 인접', const: '을',
-    '2026': { dp:60, ppp:35, reform:3, prog:2 },
+    '2026': { dp:48, ppp:42, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:49.0, ppp:47.5 },
     '2022jiha':  { dp:43.0, ppp:54.0 },
@@ -1012,7 +1012,7 @@ const dongData = {
     '2012dae':   { dp:50.0, ppp:50.0 }
   },
   '남가좌2동':{ pop: 18000, char: '가재울뉴타운', const: '을',
-    '2026': { dp:60, ppp:35, reform:3, prog:2 },
+    '2026': { dp:48, ppp:42, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:48.71, ppp:47.41 },
     '2022jiha':  { dp:43.0, ppp:54.0 },
@@ -1022,7 +1022,7 @@ const dongData = {
     '2012dae':   { dp:50.5, ppp:49.5 }
   },
   '북가좌1동':{ pop: 16000, char: '새절역 인근', const: '을',
-    '2026': { dp:63, ppp:32, reform:3, prog:2 },
+    '2026': { dp:49, ppp:41, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:50.0, ppp:46.5 },
     '2022jiha':  { dp:44.0, ppp:53.0 },
@@ -1032,7 +1032,7 @@ const dongData = {
     '2012dae':   { dp:52.0, ppp:48.0 }
   },
   '북가좌2동':{ pop: 15000, char: '가재울뉴타운', const: '을',
-    '2026': { dp:65, ppp:30, reform:3, prog:2 },
+    '2026': { dp:52, ppp:38, reform:5, prog:2 },
     '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
     '2022dae':   { dp:52.36, ppp:43.76 },
     '2022jiha':  { dp:45.0, ppp:52.0 },
