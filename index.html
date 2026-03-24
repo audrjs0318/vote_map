@@ -643,7 +643,8 @@
   </div>
   <div class="header-right">
     <select id="election-select">
-      <option value="2026dae">2026 대선 (21대) ★실측</option>
+      <option value="2026dae">2026 전망 (여론조사)</option>
+      <option value="2025dae">2025 대선 (21대) ★실측</option>
       <option value="2024chong">2024 총선 (22대)</option>
       <option value="2022dae">2022 대선 (20대)</option>
       <option value="2022jiha">2022 지방선거 (서울시장)</option>
@@ -902,8 +903,9 @@ const ALL_DONGS = [...GAP_DONGS, ...EUL_DONGS];
 
 
 const electionMeta = {
-  '2026dae':   { label:'2026 대선 (제21대) ★실측', dpName:'이재명', pppName:'김문수',  hasFour:true  },
-  '2024chong': { label:'2024 총선 (22대)',          dpName:'민주당', pppName:'국힘',    hasFour:true  },
+  '2026dae':   { label:'2026 전망 (여론조사 기반)',   dpName:'이재명', pppName:'김문수',  hasFour:true  },
+  '2025dae':   { label:'2025 대선 (제21대) ★실측',   dpName:'이재명', pppName:'김문수',  hasFour:true  },
+  '2024chong': { label:'2024 총선 (22대)',            dpName:'민주당', pppName:'국힘',    hasFour:true  },
   '2022dae':   { label:'2022 대선 (제20대)',         dpName:'이재명', pppName:'윤석열',  hasFour:false },
   '2022jiha':  { label:'2022 지방선거 (서울시장)',    dpName:'송영길', pppName:'오세훈',  hasFour:false },
   '2021boje':  { label:'2021 재보궐 (서울시장)',     dpName:'박영선', pppName:'오세훈',  hasFour:false },
@@ -918,7 +920,8 @@ const turnoutData = [
   { label:'2022 대선', val:77.1, type:'대선' },
   { label:'2022 지방', val:50.7, type:'지방' },
   { label:'2024 총선', val:67.0, type:'총선' },
-  { label:'2026 대선', val:80.4, type:'대선' },
+  { label:'2025 대선', val:77.5, type:'대선' },
+  { label:'2026 전망', val:79.1, type:'대선' },
 ];
 
 /* 동별 실측 투표율 (선관위 데이터 기준) */
@@ -1463,7 +1466,8 @@ function showDongDetail(name) {
 
   // Election history rows
   const histRows = [
-    { key: '2024chong', label: '2024 총선 (22대)', isDongLevel: true },
+    { key: '2025dae',   label: '2025 대선 (21대) ★실측', isDongLevel: true },
+    { key: '2024chong', label: '2024 총선 (22대)',        isDongLevel: true },
     { key: '2022dae',   label: '2022 대선',         isDongLevel: true },
     { key: '2022jiha',  label: '2022 지방 (서울시장)', isDongLevel: true },
     { key: '2021boje',  label: '2021 재보궐',        isDongLevel: true },
@@ -1502,7 +1506,7 @@ function showDongDetail(name) {
       <p>인구: <strong class="highlight">${d.pop.toLocaleString()}명</strong> · ${d.char}</p>
     </div>
 
-    <div class="sec-title">2026 대선 결과 (제21대 · 실측치)</div>
+    <div class="sec-title">2026 전망 (여론조사 기반 · 예측치)</div>
     <div class="info-block" style="background:linear-gradient(135deg,#0a2448,#112244);border-color:var(--dp-mid);">
       <div class="party-bars">
         <div class="party-bar-row"><span class="party-bar-name">민주당</span><div class="party-bar-track"><div class="party-bar-fill" style="width:${forecast.dp}%;background:#0052B4;"></div></div><span class="party-bar-pct">${forecast.dp}%</span></div>
@@ -1514,7 +1518,7 @@ function showDongDetail(name) {
     </div>
 
     <div class="sec-title">역대 선거 결과 · 투표율</div>
-    <div class="dong-detail-note">✅ 모든 데이터 <b>선관위 실측치</b>. 2024 총선 갑 선거구는 개혁신당 후보 출마, 을 선거구는 미출마. 2018 지방선거는 바른미래당 포함.</div>
+    <div class="dong-detail-note">✅ 2025 대선 이하 데이터 <b>선관위 실측치</b>. 2024 총선 갑 선거구는 개혁신당 후보 출마, 을 선거구는 미출마. 2018 지방선거는 바른미래당 포함.</div>
     <table class="hist-table" style="font-size:10px;">
       <thead>
         <tr>
@@ -1544,8 +1548,8 @@ function showDongDetail(name) {
 
   // Build chart
   if (dongDetailChart) { try { dongDetailChart.destroy(); } catch(e) {} }
-  const labels = ['2018지방','2020총선','2021재보궐','2022대선','2022지방','2024총선','2026대선'];
-  const keys   = ['2018jiha','2020chong','2021boje','2022dae','2022jiha','2024chong','2026dae'];
+  const labels = ['2018지방','2020총선','2021재보궐','2022대선','2022지방','2024총선','2025대선','2026전망'];
+  const keys   = ['2018jiha','2020chong','2021boje','2022dae','2022jiha','2024chong','2025dae','2026dae'];
   const dpData  = keys.map(k => (d[k] && d[k].dp)  || null);
   const pppData = keys.map(k => (d[k] && d[k].ppp) || null);
 
