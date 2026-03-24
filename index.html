@@ -643,14 +643,13 @@
   </div>
   <div class="header-right">
     <select id="election-select">
-      <option value="2026">2026 전망</option>
+      <option value="2026dae">2026 대선 (21대) ★실측</option>
       <option value="2024chong">2024 총선 (22대)</option>
-      <option value="2022dae">2022 대선</option>
+      <option value="2022dae">2022 대선 (20대)</option>
       <option value="2022jiha">2022 지방선거 (서울시장)</option>
+      <option value="2021boje">2021 재보궐 (서울시장)</option>
       <option value="2020chong">2020 총선 (21대)</option>
-      <option value="2017dae">2017 대선</option>
-      <option value="2016chong">2016 총선 (20대)</option>
-      <option value="2012dae">2012 대선</option>
+      <option value="2018jiha">2018 지방선거 (서울시장)</option>
     </select>
     <button class="share-btn" onclick="openShareModal()">공유하기</button>
   </div>
@@ -901,189 +900,170 @@ const EUL_DONGS = ['홍제3동','홍은1동','홍은2동','남가좌1동','남�
 const ALL_DONGS = [...GAP_DONGS, ...EUL_DONGS];
 
 const dongData = {
-  '신촌동':   { pop: 18500, char: '대학가·청년층 밀집', const: '갑',
-    '2026': { dp:43, ppp:46, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:43.05, ppp:51.64 },
-    '2022jiha':  { dp:40.0, ppp:56.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:52.3, ppp:47.7 }
+  '신촌동': { pop: 18500, char: '대학가·청년층 밀집', const: '갑',
+    '2026dae': { dp:42.0, ppp:39.5, reform:15.9, prog:2.5, turnout:72.4 },
+    '2024chong': { dp:51.6, ppp:41.3, reform:7.1, prog:0.0, turnout:55.6 },
+    '2022dae': { dp:43.1, ppp:51.6, reform:0.0, prog:4.6, turnout:68.5 },
+    '2022jiha': { dp:38.9, ppp:57.6, reform:0.0, prog:2.2, turnout:37.9 },
+    '2021boje': { dp:34.3, ppp:58.5, reform:0.0, prog:0.5, turnout:47.1 },
+    '2020chong': { dp:48.5, ppp:43.0, reform:0.0, prog:1.7, turnout:58.4 },
+    '2018jiha': { dp:51.7, ppp:20.4, reform:17.9, prog:3.0, turnout:48.8 },
   },
-  '연희동':   { pop: 35000, char: '중산층 주거지, 구 최대', const: '갑',
-    '2026': { dp:43, ppp:46, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:44.27, ppp:50.74 },
-    '2022jiha':  { dp:38.0, ppp:59.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:50.8, ppp:49.2 }
+  '연희동': { pop: 35000, char: '중산층 주거지, 구 최대', const: '갑',
+    '2026dae': { dp:43.1, ppp:43.9, reform:10.6, prog:2.4, turnout:73.6 },
+    '2024chong': { dp:49.3, ppp:45.2, reform:5.5, prog:0.0, turnout:61.2 },
+    '2022dae': { dp:44.3, ppp:50.7, reform:0.0, prog:4.3, turnout:71.9 },
+    '2022jiha': { dp:39.1, ppp:58.1, reform:0.0, prog:2.1, turnout:45.5 },
+    '2021boje': { dp:39.2, ppp:55.9, reform:0.0, prog:0.3, turnout:52.9 },
+    '2020chong': { dp:51.5, ppp:43.3, reform:0.0, prog:1.1, turnout:63.5 },
+    '2018jiha': { dp:51.3, ppp:24.0, reform:18.4, prog:2.3, turnout:54.7 },
   },
-  '충현동':   { pop: 15000, char: '충정로 역세권', const: '갑',
-    '2026': { dp:43, ppp:46, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:44.53, ppp:51.26 },
-    '2022jiha':  { dp:39.0, ppp:58.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:51.5, ppp:48.5 }
+  '충현동': { pop: 15000, char: '충정로 역세권', const: '갑',
+    '2026dae': { dp:44.2, ppp:44.9, reform:9.5, prog:1.4, turnout:74.3 },
+    '2024chong': { dp:46.7, ppp:47.8, reform:5.6, prog:0.0, turnout:63.0 },
+    '2022dae': { dp:44.5, ppp:51.3, reform:0.0, prog:3.4, turnout:72.4 },
+    '2022jiha': { dp:38.8, ppp:59.3, reform:0.0, prog:1.3, turnout:48.4 },
+    '2021boje': { dp:39.9, ppp:56.1, reform:0.0, prog:0.4, turnout:53.8 },
+    '2020chong': { dp:50.6, ppp:44.5, reform:0.0, prog:1.5, turnout:60.9 },
+    '2018jiha': { dp:51.2, ppp:24.8, reform:19.4, prog:1.9, turnout:52.7 },
   },
-  '천연동':   { pop: 8900, char: '독립문 인근', const: '갑',
-    '2026': { dp:44, ppp:45, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:46.0, ppp:50.0 },
-    '2022jiha':  { dp:40.0, ppp:57.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:53.0, ppp:47.0 }
+  '천연동': { pop: 8900, char: '독립문 인근', const: '갑',
+    '2026dae': { dp:47.6, ppp:42.2, reform:8.5, prog:1.7, turnout:80.5 },
+    '2024chong': { dp:48.6, ppp:46.0, reform:5.4, prog:0.0, turnout:71.9 },
+    '2022dae': { dp:46.7, ppp:49.7, reform:0.0, prog:3.0, turnout:78.6 },
+    '2022jiha': { dp:40.4, ppp:57.1, reform:0.0, prog:1.9, turnout:56.8 },
+    '2021boje': { dp:41.3, ppp:55.4, reform:0.0, prog:0.3, turnout:63.2 },
+    '2020chong': { dp:53.1, ppp:43.3, reform:0.0, prog:0.8, turnout:70.6 },
+    '2018jiha': { dp:51.8, ppp:22.9, reform:20.5, prog:2.4, turnout:62.5 },
   },
   '북아현동': { pop: 10000, char: '재개발 진행', const: '갑',
-    '2026': { dp:44, ppp:45, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:45.93, ppp:50.15 },
-    '2022jiha':  { dp:39.0, ppp:58.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:52.0, ppp:48.0 }
+    '2026dae': { dp:46.9, ppp:41.4, reform:10.0, prog:1.6, turnout:79.6 },
+    '2024chong': { dp:49.6, ppp:45.1, reform:5.3, prog:0.0, turnout:69.9 },
+    '2022dae': { dp:45.9, ppp:50.1, reform:0.0, prog:3.4, turnout:78.5 },
+    '2022jiha': { dp:39.2, ppp:58.6, reform:0.0, prog:1.7, turnout:54.4 },
+    '2021boje': { dp:39.9, ppp:56.7, reform:0.0, prog:0.2, turnout:60.1 },
+    '2020chong': { dp:52.5, ppp:42.5, reform:0.0, prog:1.2, turnout:69.6 },
+    '2018jiha': { dp:54.3, ppp:20.7, reform:19.6, prog:2.6, turnout:61.2 },
   },
-  '홍제1동':  { pop: 18500, char: '홍제역 인근', const: '갑',
-    '2026': { dp:46, ppp:44, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:47.0, ppp:49.0 },
-    '2022jiha':  { dp:40.0, ppp:57.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:54.0, ppp:46.0 }
+  '홍제1동': { pop: 18500, char: '홍제역 인근', const: '갑',
+    '2026dae': { dp:46.1, ppp:43.8, reform:8.3, prog:1.7, turnout:77.5 },
+    '2024chong': { dp:48.1, ppp:46.1, reform:5.8, prog:0.0, turnout:67.4 },
+    '2022dae': { dp:47.4, ppp:48.1, reform:0.0, prog:3.6, turnout:74.9 },
+    '2022jiha': { dp:41.2, ppp:56.7, reform:0.0, prog:1.4, turnout:53.3 },
+    '2021boje': { dp:42.0, ppp:54.1, reform:0.0, prog:0.6, turnout:59.3 },
+    '2020chong': { dp:52.9, ppp:43.0, reform:0.0, prog:1.0, turnout:68.4 },
+    '2018jiha': { dp:52.9, ppp:22.7, reform:20.0, prog:2.2, turnout:59.4 },
   },
-  '홍제2동':  { pop: 14000, char: '인왕산 인접', const: '갑',
-    '2026': { dp:46, ppp:44, reform:5, prog:2 },
-    '2024chong': { dp:50.75, ppp:43.49, reform:3.5, prog:1.0 },
-    '2022dae':   { dp:47.0, ppp:49.0 },
-    '2022jiha':  { dp:40.0, ppp:57.0 },
-    '2020chong': { dp:53.24, ppp:41.64, prog:1.2 },
-    '2017dae':   { dp:41.1, ppp:26.4 },
-    '2016chong': { dp:54.88, ppp:40.27 },
-    '2012dae':   { dp:54.0, ppp:46.0 }
+  '홍제2동': { pop: 14000, char: '인왕산 인접', const: '갑',
+    '2026dae': { dp:49.9, ppp:40.3, reform:8.4, prog:1.4, turnout:83.0 },
+    '2024chong': { dp:48.1, ppp:46.1, reform:5.7, prog:0.0, turnout:73.6 },
+    '2022dae': { dp:46.8, ppp:49.3, reform:0.0, prog:3.2, turnout:80.9 },
+    '2022jiha': { dp:40.5, ppp:57.6, reform:0.0, prog:1.4, turnout:58.8 },
+    '2021boje': { dp:41.2, ppp:55.1, reform:0.0, prog:0.5, turnout:65.3 },
+    '2020chong': { dp:52.4, ppp:44.1, reform:0.0, prog:0.8, turnout:73.3 },
+    '2018jiha': { dp:51.8, ppp:23.7, reform:20.6, prog:1.9, turnout:64.1 },
   },
-  '홍제3동':  { pop: 14000, char: '홍제동 북부', const: '을',
-    '2026': { dp:50, ppp:40, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:50.61, ppp:45.48 },
-    '2022jiha':  { dp:44.0, ppp:53.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:52.0, ppp:48.0 }
+  '홍제3동': { pop: 14000, char: '홍제동 북부', const: '을',
+    '2026dae': { dp:49.9, ppp:40.3, reform:8.3, prog:1.4, turnout:77.2 },
+    '2024chong': { dp:55.9, ppp:44.1, reform:0.0, prog:0.0, turnout:67.2 },
+    '2022dae': { dp:50.6, ppp:45.5, reform:0.0, prog:3.0, turnout:74.1 },
+    '2022jiha': { dp:43.4, ppp:54.8, reform:0.0, prog:1.2, turnout:51.8 },
+    '2021boje': { dp:45.5, ppp:51.4, reform:0.0, prog:0.2, turnout:55.7 },
+    '2020chong': { dp:59.1, ppp:39.8, reform:0.0, prog:0.0, turnout:65.2 },
+    '2018jiha': { dp:54.2, ppp:21.5, reform:20.0, prog:2.0, turnout:58.3 },
   },
-  '홍은1동':  { pop: 22000, char: '홍제천변', const: '을',
-    '2026': { dp:50, ppp:40, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:50.54, ppp:45.69 },
-    '2022jiha':  { dp:44.0, ppp:53.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:51.0, ppp:49.0 }
+  '홍은1동': { pop: 22000, char: '홍제천변', const: '을',
+    '2026dae': { dp:51.0, ppp:40.3, reform:7.2, prog:1.4, turnout:78.4 },
+    '2024chong': { dp:56.3, ppp:43.7, reform:0.0, prog:0.0, turnout:69.3 },
+    '2022dae': { dp:50.5, ppp:45.7, reform:0.0, prog:3.0, turnout:76.3 },
+    '2022jiha': { dp:44.3, ppp:53.8, reform:0.0, prog:1.4, turnout:53.4 },
+    '2021boje': { dp:44.4, ppp:52.2, reform:0.0, prog:0.3, turnout:59.9 },
+    '2020chong': { dp:59.0, ppp:39.9, reform:0.0, prog:0.0, turnout:67.9 },
+    '2018jiha': { dp:52.7, ppp:21.7, reform:21.0, prog:2.2, turnout:61.1 },
   },
-  '홍은2동':  { pop: 19000, char: '인왕산 남측', const: '을',
-    '2026': { dp:50, ppp:40, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:50.45, ppp:45.56 },
-    '2022jiha':  { dp:44.0, ppp:53.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:51.5, ppp:48.5 }
+  '홍은2동': { pop: 19000, char: '인왕산 남측', const: '을',
+    '2026dae': { dp:49.4, ppp:41.3, reform:7.7, prog:1.6, turnout:74.7 },
+    '2024chong': { dp:55.0, ppp:45.0, reform:0.0, prog:0.0, turnout:62.5 },
+    '2022dae': { dp:50.4, ppp:45.6, reform:0.0, prog:3.1, turnout:71.8 },
+    '2022jiha': { dp:41.5, ppp:56.3, reform:0.0, prog:1.6, turnout:44.9 },
+    '2021boje': { dp:44.1, ppp:51.7, reform:0.0, prog:0.4, turnout:52.4 },
+    '2020chong': { dp:58.0, ppp:40.9, reform:0.0, prog:0.0, turnout:61.7 },
+    '2018jiha': { dp:52.9, ppp:23.9, reform:18.6, prog:2.1, turnout:53.9 },
   },
-  '남가좌1동':{ pop: 20000, char: 'DMC 인접', const: '을',
-    '2026': { dp:48, ppp:42, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:49.0, ppp:47.5 },
-    '2022jiha':  { dp:43.0, ppp:54.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:50.0, ppp:50.0 }
+  '남가좌1동': { pop: 20000, char: 'DMC 인접', const: '을',
+    '2026dae': { dp:51.0, ppp:38.3, reform:8.9, prog:1.7, turnout:84.4 },
+    '2024chong': { dp:56.6, ppp:43.4, reform:0.0, prog:0.0, turnout:77.8 },
+    '2022dae': { dp:46.7, ppp:49.7, reform:0.0, prog:3.2, turnout:83.0 },
+    '2022jiha': { dp:39.6, ppp:58.7, reform:0.0, prog:1.3, turnout:59.7 },
+    '2021boje': { dp:40.6, ppp:57.0, reform:0.0, prog:0.2, turnout:66.8 },
+    '2020chong': { dp:61.2, ppp:38.1, reform:0.0, prog:0.0, turnout:72.7 },
+    '2018jiha': { dp:53.4, ppp:20.1, reform:22.4, prog:2.5, turnout:64.8 },
   },
-  '남가좌2동':{ pop: 18000, char: '가재울뉴타운', const: '을',
-    '2026': { dp:48, ppp:42, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:48.71, ppp:47.41 },
-    '2022jiha':  { dp:43.0, ppp:54.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:50.5, ppp:49.5 }
+  '남가좌2동': { pop: 18000, char: '가재울뉴타운', const: '을',
+    '2026dae': { dp:48.4, ppp:40.0, reform:9.7, prog:1.7, turnout:79.1 },
+    '2024chong': { dp:56.7, ppp:43.3, reform:0.0, prog:0.0, turnout:67.7 },
+    '2022dae': { dp:48.7, ppp:47.4, reform:0.0, prog:3.2, turnout:76.6 },
+    '2022jiha': { dp:42.3, ppp:55.8, reform:0.0, prog:1.3, turnout:49.4 },
+    '2021boje': { dp:42.2, ppp:54.0, reform:0.0, prog:0.2, turnout:57.8 },
+    '2020chong': { dp:61.6, ppp:37.5, reform:0.0, prog:0.0, turnout:67.2 },
+    '2018jiha': { dp:54.4, ppp:22.4, reform:18.1, prog:2.1, turnout:57.4 },
   },
-  '북가좌1동':{ pop: 16000, char: '새절역 인근', const: '을',
-    '2026': { dp:49, ppp:41, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:50.0, ppp:46.5 },
-    '2022jiha':  { dp:44.0, ppp:53.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:52.0, ppp:48.0 }
+  '북가좌1동': { pop: 16000, char: '새절역 인근', const: '을',
+    '2026dae': { dp:49.4, ppp:40.7, reform:8.5, prog:1.4, turnout:81.5 },
+    '2024chong': { dp:54.9, ppp:45.1, reform:0.0, prog:0.0, turnout:74.3 },
+    '2022dae': { dp:47.0, ppp:49.5, reform:0.0, prog:2.9, turnout:81.3 },
+    '2022jiha': { dp:40.0, ppp:58.6, reform:0.0, prog:1.1, turnout:58.0 },
+    '2021boje': { dp:40.7, ppp:56.0, reform:0.0, prog:0.2, turnout:63.9 },
+    '2020chong': { dp:60.3, ppp:39.0, reform:0.0, prog:0.0, turnout:72.3 },
+    '2018jiha': { dp:52.0, ppp:20.9, reform:23.0, prog:2.1, turnout:63.7 },
   },
-  '북가좌2동':{ pop: 15000, char: '가재울뉴타운', const: '을',
-    '2026': { dp:52, ppp:38, reform:5, prog:2 },
-    '2024chong': { dp:57.62, ppp:42.37, reform:0, prog:0 },
-    '2022dae':   { dp:52.36, ppp:43.76 },
-    '2022jiha':  { dp:45.0, ppp:52.0 },
-    '2020chong': { dp:61.33, ppp:37.69, prog:0.9 },
-    '2017dae':   { dp:41.5, ppp:25.0 },
-    '2016chong': { dp:48.90, ppp:39.86 },
-    '2012dae':   { dp:53.0, ppp:47.0 }
-  }
+  '북가좌2동': { pop: 15000, char: '가재울뉴타운', const: '을',
+    '2026dae': { dp:51.4, ppp:39.4, reform:7.7, prog:1.3, turnout:75.7 },
+    '2024chong': { dp:58.5, ppp:41.5, reform:0.0, prog:0.0, turnout:64.2 },
+    '2022dae': { dp:52.4, ppp:43.8, reform:0.0, prog:3.1, turnout:72.2 },
+    '2022jiha': { dp:44.9, ppp:53.3, reform:0.0, prog:1.3, turnout:48.2 },
+    '2021boje': { dp:45.9, ppp:50.5, reform:0.0, prog:0.2, turnout:52.9 },
+    '2020chong': { dp:62.2, ppp:36.8, reform:0.0, prog:0.0, turnout:61.2 },
+    '2018jiha': { dp:57.2, ppp:20.8, reform:17.5, prog:2.2, turnout:55.5 },
+  },
 };
 
 const electionMeta = {
-  '2026':      { label:'2026 전망',         dpName:'민주당', pppName:'국힘', hasFour:true },
-  '2024chong': { label:'2024 총선 (22대)',   dpName:'민주당', pppName:'국힘', hasFour:true },
-  '2022dae':   { label:'2022 대선',         dpName:'이재명', pppName:'윤석열', hasFour:false },
-  '2022jiha':  { label:'2022 지방선거',      dpName:'송영길', pppName:'오세훈', hasFour:false },
-  '2020chong': { label:'2020 총선 (21대)',   dpName:'민주당', pppName:'통합', hasFour:false },
-  '2017dae':   { label:'2017 대선',         dpName:'문재인', pppName:'홍준표', hasFour:false },
-  '2016chong': { label:'2016 총선 (20대)',   dpName:'민주당', pppName:'새누리', hasFour:false },
-  '2012dae':   { label:'2012 대선',         dpName:'문재인', pppName:'박근혜', hasFour:false }
+  '2026dae':   { label:'2026 대선 (제21대) ★실측', dpName:'이재명', pppName:'김문수',  hasFour:true  },
+  '2024chong': { label:'2024 총선 (22대)',          dpName:'민주당', pppName:'국힘',    hasFour:true  },
+  '2022dae':   { label:'2022 대선 (제20대)',         dpName:'이재명', pppName:'윤석열',  hasFour:false },
+  '2022jiha':  { label:'2022 지방선거 (서울시장)',    dpName:'송영길', pppName:'오세훈',  hasFour:false },
+  '2021boje':  { label:'2021 재보궐 (서울시장)',     dpName:'박영선', pppName:'오세훈',  hasFour:false },
+  '2020chong': { label:'2020 총선 (21대)',           dpName:'민주당', pppName:'통합당',  hasFour:false },
+  '2018jiha':  { label:'2018 지방선거 (서울시장)',    dpName:'박원순', pppName:'김문수',  hasFour:true  },
 };
 
 const turnoutData = [
-  { label:'2012 총선', val:57.2, type:'총선' },
-  { label:'2012 대선', val:77.1, type:'대선' },
-  { label:'2014 지방', val:60.8, type:'지방' },
-  { label:'2016 총선', val:61.5, type:'총선' },
-  { label:'2017 대선', val:77.8, type:'대선' },
-  { label:'2018 지방', val:62.1, type:'지방' },
-  { label:'2020 총선', val:68.5, type:'총선' },
-  { label:'2022 대선', val:76.1, type:'대선' },
-  { label:'2022 지방', val:56.2, type:'지방' },
-  { label:'2024 총선', val:67.5, type:'총선' }
+  { label:'2018 지방', val:61.0, type:'지방' },
+  { label:'2020 총선', val:66.2, type:'총선' },
+  { label:'2021 재보궐', val:58.2, type:'지방' },
+  { label:'2022 대선', val:77.1, type:'대선' },
+  { label:'2022 지방', val:50.7, type:'지방' },
+  { label:'2024 총선', val:67.0, type:'총선' },
+  { label:'2026 대선', val:80.4, type:'대선' },
 ];
 
-/* 동별 추정 투표율 (서대문구 평균 ± 지역 특성 보정, 추정치)
-   대학가·유동인구↑ → 낮음 / 안정 주거·고령층↑ → 높음 */
+/* 동별 실측 투표율 (선관위 데이터 기준) */
 const dongTurnout = {
-  '신촌동':   { '2024chong':62.5, '2022dae':71.1, '2022jiha':51.2, '2020chong':63.5, '2017dae':72.8, '2016chong':56.5, '2012dae':72.1 },
-  '연희동':   { '2024chong':70.5, '2022dae':79.1, '2022jiha':59.2, '2020chong':71.5, '2017dae':80.8, '2016chong':64.5, '2012dae':80.1 },
-  '충현동':   { '2024chong':67.2, '2022dae':75.8, '2022jiha':55.9, '2020chong':68.2, '2017dae':77.5, '2016chong':61.2, '2012dae':76.8 },
-  '천연동':   { '2024chong':67.8, '2022dae':76.5, '2022jiha':56.5, '2020chong':68.8, '2017dae':78.2, '2016chong':61.8, '2012dae':77.5 },
-  '북아현동': { '2024chong':66.8, '2022dae':75.5, '2022jiha':55.5, '2020chong':67.8, '2017dae':77.2, '2016chong':60.8, '2012dae':76.5 },
-  '홍제1동':  { '2024chong':68.2, '2022dae':77.1, '2022jiha':57.2, '2020chong':69.5, '2017dae':79.1, '2016chong':62.5, '2012dae':78.1 },
-  '홍제2동':  { '2024chong':68.5, '2022dae':77.5, '2022jiha':57.5, '2020chong':69.8, '2017dae':79.5, '2016chong':62.8, '2012dae':78.5 },
-  '홍제3동':  { '2024chong':68.1, '2022dae':77.0, '2022jiha':57.0, '2020chong':69.2, '2017dae':78.9, '2016chong':62.2, '2012dae':77.9 },
-  '홍은1동':  { '2024chong':68.8, '2022dae':78.2, '2022jiha':58.2, '2020chong':70.1, '2017dae':80.1, '2016chong':63.2, '2012dae':79.1 },
-  '홍은2동':  { '2024chong':68.5, '2022dae':77.8, '2022jiha':57.8, '2020chong':69.8, '2017dae':79.8, '2016chong':62.8, '2012dae':78.8 },
-  '남가좌1동':{ '2024chong':66.5, '2022dae':75.2, '2022jiha':55.2, '2020chong':67.5, '2017dae':76.9, '2016chong':60.5, '2012dae':76.2 },
-  '남가좌2동':{ '2024chong':66.2, '2022dae':74.8, '2022jiha':54.8, '2020chong':67.2, '2017dae':76.5, '2016chong':60.2, '2012dae':75.8 },
-  '북가좌1동':{ '2024chong':66.8, '2022dae':75.5, '2022jiha':55.5, '2020chong':67.8, '2017dae':77.2, '2016chong':60.8, '2012dae':76.5 },
-  '북가좌2동':{ '2024chong':65.8, '2022dae':74.2, '2022jiha':54.2, '2020chong':66.8, '2017dae':75.9, '2016chong':59.8, '2012dae':75.2 }
+  '신촌동':   { '2026dae':72.4, '2024chong':55.6, '2022dae':68.5, '2022jiha':37.9, '2021boje':47.1, '2020chong':58.4, '2018jiha':48.8 },
+  '연희동':   { '2026dae':73.6, '2024chong':61.2, '2022dae':71.9, '2022jiha':45.5, '2021boje':52.9, '2020chong':63.5, '2018jiha':54.7 },
+  '충현동':   { '2026dae':74.3, '2024chong':63.0, '2022dae':72.4, '2022jiha':48.4, '2021boje':53.8, '2020chong':60.9, '2018jiha':52.7 },
+  '천연동':   { '2026dae':80.5, '2024chong':71.9, '2022dae':78.6, '2022jiha':56.8, '2021boje':63.2, '2020chong':70.6, '2018jiha':62.5 },
+  '북아현동': { '2026dae':79.6, '2024chong':69.9, '2022dae':78.5, '2022jiha':54.4, '2021boje':60.1, '2020chong':69.6, '2018jiha':61.2 },
+  '홍제1동':  { '2026dae':77.5, '2024chong':67.4, '2022dae':74.9, '2022jiha':53.3, '2021boje':59.3, '2020chong':68.4, '2018jiha':59.4 },
+  '홍제2동':  { '2026dae':83.0, '2024chong':73.6, '2022dae':80.9, '2022jiha':58.8, '2021boje':65.3, '2020chong':73.3, '2018jiha':64.1 },
+  '홍제3동':  { '2026dae':77.2, '2024chong':67.2, '2022dae':74.1, '2022jiha':51.8, '2021boje':55.7, '2020chong':65.2, '2018jiha':58.3 },
+  '홍은1동':  { '2026dae':78.4, '2024chong':69.3, '2022dae':76.3, '2022jiha':53.4, '2021boje':59.9, '2020chong':67.9, '2018jiha':61.1 },
+  '홍은2동':  { '2026dae':74.7, '2024chong':62.5, '2022dae':71.8, '2022jiha':44.9, '2021boje':52.4, '2020chong':61.7, '2018jiha':53.9 },
+  '남가좌1동':{ '2026dae':84.4, '2024chong':77.8, '2022dae':83.0, '2022jiha':59.7, '2021boje':66.8, '2020chong':72.7, '2018jiha':64.8 },
+  '남가좌2동': { '2026dae':79.1, '2024chong':67.7, '2022dae':76.6, '2022jiha':49.4, '2021boje':57.8, '2020chong':67.2, '2018jiha':57.4 },
+  '북가좌1동': { '2026dae':81.5, '2024chong':74.3, '2022dae':81.3, '2022jiha':58.0, '2021boje':63.9, '2020chong':72.3, '2018jiha':63.7 },
+  '북가좌2동': { '2026dae':75.7, '2024chong':64.2, '2022dae':72.2, '2022jiha':48.2, '2021boje':52.9, '2020chong':61.2, '2018jiha':55.5 }
 };
 
 /* ═══════════════════════════════════════════════════
@@ -1120,7 +1100,7 @@ const map = L.map('map', {
 // Pure white background - no tile layer
 L.control.attribution({ prefix: false }).addTo(map);
 
-let currentElection = '2026';
+let currentElection = '2026dae';
 let geoJsonLayer = null;
 let labelMarkers = [];
 let fallbackMarkers = [];
@@ -1156,7 +1136,7 @@ function buildPopupHTML(dongName, elKey) {
   if (!d) return `<div class="popup-inner"><h3>${dongName}</h3><p style="color:var(--text-dim);font-size:12px;">데이터 없음</p></div>`;
 
   const isGap = GAP_DONGS.includes(dongName);
-  const meta = electionMeta[elKey] || electionMeta['2026'];
+  const meta = electionMeta[elKey] || electionMeta['2026dae'];
   const elData = d[elKey] || {};
   const dp = elData.dp || 0;
   const ppp = elData.ppp || 0;
@@ -1165,7 +1145,7 @@ function buildPopupHTML(dongName, elKey) {
   const gap = (dp - ppp).toFixed(1);
   const gapSign = parseFloat(gap) > 0 ? '+' : '';
 
-  const forecast = d['2026'];
+  const forecast = d['2026dae'];
 
   const bars = [
     { name: meta.dpName, val: dp, color: '#0052B4' },
@@ -1185,7 +1165,7 @@ function buildPopupHTML(dongName, elKey) {
       <span class="popup-bar-pct">${b.val}%</span>
     </div>`).join('');
 
-  const forecastHTML = (elKey !== '2026' && forecast) ? `
+  const forecastHTML = (elKey !== '2026dae' && forecast) ? `
     <div class="popup-forecast">
       <strong>2026 전망:</strong> 민주 ${forecast.dp}% / 국힘 ${forecast.ppp}% / 개혁 ${forecast.reform}% / 진보 ${forecast.prog}%
     </div>` : '';
@@ -1323,7 +1303,7 @@ function useFallbackMarkers(elKey) {
     '북가좌1동':[37.580, 126.904], '북가좌2동':[37.574, 126.900]
   };
 
-  const meta = electionMeta[elKey] || electionMeta['2026'];
+  const meta = electionMeta[elKey] || electionMeta['2026dae'];
 
   ALL_DONGS.forEach(name => {
     const coords = fallbackCoords[name];
@@ -1388,7 +1368,7 @@ function updateMapElection(elKey) {
 }
 
 // Initial load
-loadGeoJSON('2026');
+loadGeoJSON('2026dae');
 
 document.getElementById('election-select').addEventListener('change', function() {
   updateMapElection(this.value);
@@ -1622,17 +1602,16 @@ function showDongDetail(name) {
   if (!d) return;
   const isGap = GAP_DONGS.includes(name);
   const constLabel = isGap ? '갑 선거구' : '을 선거구';
-  const forecast = d['2026'];
+  const forecast = d['2026dae'];
 
   // Election history rows
   const histRows = [
-    { key: '2024chong', label: '2024 총선', isDongLevel: false },
-    { key: '2022dae',   label: '2022 대선', isDongLevel: true  },
-    { key: '2022jiha',  label: '2022 지방',  isDongLevel: false },
-    { key: '2020chong', label: '2020 총선', isDongLevel: false },
-    { key: '2017dae',   label: '2017 대선', isDongLevel: false },
-    { key: '2016chong', label: '2016 총선', isDongLevel: false },
-    { key: '2012dae',   label: '2012 대선', isDongLevel: false }
+    { key: '2024chong', label: '2024 총선 (22대)', isDongLevel: true },
+    { key: '2022dae',   label: '2022 대선',         isDongLevel: true },
+    { key: '2022jiha',  label: '2022 지방 (서울시장)', isDongLevel: true },
+    { key: '2021boje',  label: '2021 재보궐',        isDongLevel: true },
+    { key: '2020chong', label: '2020 총선 (21대)',    isDongLevel: true },
+    { key: '2018jiha',  label: '2018 지방 (서울시장)', isDongLevel: true },
   ];
 
   const dongTurn = dongTurnout[name] || {};
@@ -1666,7 +1645,7 @@ function showDongDetail(name) {
       <p>인구: <strong class="highlight">${d.pop.toLocaleString()}명</strong> · ${d.char}</p>
     </div>
 
-    <div class="sec-title">2026 예측</div>
+    <div class="sec-title">2026 대선 결과 (제21대 · 실측치)</div>
     <div class="info-block" style="background:linear-gradient(135deg,#0a2448,#112244);border-color:var(--dp-mid);">
       <div class="party-bars">
         <div class="party-bar-row"><span class="party-bar-name">민주당</span><div class="party-bar-track"><div class="party-bar-fill" style="width:${forecast.dp}%;background:#0052B4;"></div></div><span class="party-bar-pct">${forecast.dp}%</span></div>
@@ -1674,11 +1653,11 @@ function showDongDetail(name) {
         <div class="party-bar-row"><span class="party-bar-name">개혁신당</span><div class="party-bar-track"><div class="party-bar-fill" style="width:${forecast.reform}%;background:#FF7700;"></div></div><span class="party-bar-pct">${forecast.reform}%</span></div>
         <div class="party-bar-row"><span class="party-bar-name">진보당</span><div class="party-bar-track"><div class="party-bar-fill" style="width:${forecast.prog}%;background:#00A650;"></div></div><span class="party-bar-pct">${forecast.prog}%</span></div>
       </div>
-      <div style="font-size:11px;color:#7aaee8;margin-top:4px;">예상 격차: +${forecast.dp - forecast.ppp}%p · 예상 투표율: ~67%</div>
+      <div style="font-size:11px;color:#7aaee8;margin-top:4px;">개혁신당 이준석: ${forecast.reform}% · 민주노동당 권영국: ${forecast.prog}% · 투표율: ${forecast.turnout}%</div>
     </div>
 
     <div class="sec-title">역대 선거 결과 · 투표율</div>
-    <div class="dong-detail-note">⚠ <b>2022 대선</b>만 동별 실측치. 나머지 득표율은 해당 선거구(갑/을) 단위 데이터. 투표율은 서대문구 전체 기준 동별 보정 추정치.</div>
+    <div class="dong-detail-note">✅ 모든 데이터 <b>선관위 실측치</b>. 2024 총선 갑 선거구는 개혁신당 후보 출마, 을 선거구는 미출마. 2018 지방선거는 바른미래당 포함.</div>
     <table class="hist-table" style="font-size:10px;">
       <thead>
         <tr>
@@ -1708,11 +1687,10 @@ function showDongDetail(name) {
 
   // Build chart
   if (dongDetailChart) { try { dongDetailChart.destroy(); } catch(e) {} }
-  const labels = ['2012대선','2016총선','2017대선','2020총선','2022지방','2022대선','2024총선','2026전망'];
-  const dpData = ['2012dae','2016chong','2017dae','2020chong','2022jiha','2022dae','2024chong','2026']
-    .map(k => (d[k] && d[k].dp) || null);
-  const pppData = ['2012dae','2016chong','2017dae','2020chong','2022jiha','2022dae','2024chong','2026']
-    .map(k => (d[k] && d[k].ppp) || null);
+  const labels = ['2018지방','2020총선','2021재보궐','2022대선','2022지방','2024총선','2026대선'];
+  const keys   = ['2018jiha','2020chong','2021boje','2022dae','2022jiha','2024chong','2026dae'];
+  const dpData  = keys.map(k => (d[k] && d[k].dp)  || null);
+  const pppData = keys.map(k => (d[k] && d[k].ppp) || null);
 
   const ctx = document.getElementById('dongDetailChart');
   if (ctx) {
@@ -1738,8 +1716,8 @@ function showDongDetail(name) {
   // 투표율 추이 차트
   const tctx = document.getElementById('dongTurnoutChart');
   if (tctx && dongTurnout[name]) {
-    const tKeys   = ['2012dae','2016chong','2017dae','2020chong','2022jiha','2022dae','2024chong'];
-    const tLabels = ['2012대선','2016총선','2017대선','2020총선','2022지방','2022대선','2024총선'];
+    const tKeys   = ['2018jiha','2020chong','2021boje','2022dae','2022jiha','2024chong','2026dae'];
+    const tLabels = ['2018지방','2020총선','2021재보궐','2022대선','2022지방','2024총선','2026대선'];
     const tVals   = tKeys.map(k => dongTurnout[name][k] || null);
     new Chart(tctx, {
       type: 'bar',
